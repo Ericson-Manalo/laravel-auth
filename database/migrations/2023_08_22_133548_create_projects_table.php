@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('type');
             $table->string('language');
-            $table->date('created_at');
+            $table->date('created_date');
             $table->timestamps();
         });
     }
