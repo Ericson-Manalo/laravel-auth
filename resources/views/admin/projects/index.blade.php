@@ -1,33 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="col-10 m-auto mt-5">
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">#ID</th>
+                <th scope="col">Project's Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+                <th scope="col">Language used</th>
+                <th scope="col">Data created</th>
             </tr>
         </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>
-    </tbody>
+        <tbody>
+            @foreach ($projects as $project)
+            <tr>
+                <td>
+                    {{$project->id}}
+                </td>
+                <th>
+                    {{$project->title}}
+                </th>
+                <td>
+                    {{$project->description}}
+                </td>
+                <td>
+                    {{$project->type}}
+                </td>
+                <td>
+                    {{$project->language}}
+                </td>
+                <td>
+                    {{$project->created_date}}
+                </td>
+
+            </tr>
+            @endforeach
+        </tbody>
     </table>
+
+    {{$projects->links()}}
+</div>
 @endsection
