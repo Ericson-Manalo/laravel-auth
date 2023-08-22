@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illumnate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -25,6 +26,7 @@ class ProjectController extends Controller
     public function create()
     {
         //
+        return view('admin.projects.create');
     }
 
     /**
@@ -38,9 +40,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Project $project)
     {
-        $project = Project::findOrFail($id);
+        
         return view('admin.projects.show', compact('project'));
     }
 
