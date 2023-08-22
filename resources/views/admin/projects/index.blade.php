@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="col-10 m-auto mt-5">
-    <table class="table">
-        <thead>
+    <table class="table table-hover align-middle">
+        <thead class="table-dark align-middle">
             <tr>
                 <th scope="col">#ID</th>
                 <th scope="col">Project's Title</th>
@@ -11,6 +11,8 @@
                 <th scope="col">Type</th>
                 <th scope="col">Language used</th>
                 <th scope="col">Data created</th>
+                <th scope="col">Settings</th>
+
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,11 @@
                 </td>
                 <td>
                     {{$project->created_date}}
+                </td>
+                <td class="text-center">
+                    <a href="" class="badge bg-primary p-2 m-1 text-decoration: none">View</a>
+                    <a href="" class="badge bg-success p-2 m-1">Edit</a>
+                    <a href="" class="badge bg-danger p-2 m-1">Delete</a>
                 </td>
 
             </tr>
