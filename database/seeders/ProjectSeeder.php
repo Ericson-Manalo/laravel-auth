@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -40,6 +41,7 @@ class ProjectSeeder extends Seeder
             $newProject->description = $faker->paragraph(7);
             $newProject->type = $faker->randomElement($typeList);
             $newProject->language = $faker->randomElement($languageList);
+            $newProject->created_date = $faker->date('Y_m_d');
             $newProject->save();
             # code...
         }
