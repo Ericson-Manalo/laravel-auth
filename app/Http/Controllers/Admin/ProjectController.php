@@ -35,6 +35,21 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         //
+
+        $data = validate([
+            'title' => ['required', 'unique:projects', 'min:3'],
+            'description' => ['max:500'],
+        ]);
+
+        $newProject = new Project();
+        $newProject->title = $data['title'];
+        $newProject->description = $data['description'];
+        $newProject->type = $data['type'];
+        $newProject->language = $data['language'];
+        $newProject->created_data = $data['created_data'];
+        $newProject->save();
+
+        return redirect()->route('admin.projects.show', $newProject->id);
     }
 
     /**
