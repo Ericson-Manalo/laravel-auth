@@ -12,13 +12,47 @@
         <label for="description" class="form-label">Description</label>
         <textarea name="description" id="description" cols="95 "rows="10"></textarea>
     </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <label for="type" class="form-label">Type</label>
         <input type="text" class="form-control" id="type" name="type">
+    </div> -->
+    <div class="form-group">
+        <label for="type" class="form-label">Type</label>
+            <div class="col-md-10 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-file-code-o"></i></span>
+                    <select class="form-control" id="type">
+                        <option>Public</option>
+                        <option>Private</option>
+                        <option>Sources</option>
+                        <option>OnlForks</option>
+                        <option>Archived</option>
+                        <option>Can be sponsored</option>
+                        <option>Mirrors</option>
+                        <option>Templates</option>
+                    </select>
+                </div>
+            </div>
     </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <label for="language" class="form-label">Language</label>
         <input type="text" class="form-control" id="language" name="language">
+    </div> -->
+    <div class="form-group">
+        <label for="type" class="form-label">Type</label>
+            <div class="col-md-10 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-file-code-o"></i></span>
+                    <select class="form-control" id="type">
+                        <option>PHP</option>
+                        <option>Hack</option>
+                        <option>Vue</option>
+                        <option>CSS</option>
+                        <option>HTML</option>
+                        <option>Javascript</option>
+                    </select>
+                </div>
+            </div>
     </div>
     <div class="mb-3">
         <label for="created_date" class="form-label">Date of creation</label>
