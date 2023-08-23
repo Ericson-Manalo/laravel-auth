@@ -46,7 +46,8 @@
             @endforeach
         </tbody>
     </table>
-
+    
     {{$projects->links()}}
+    <a href="{{ route('admin.projects.create')}}" class="badge bg-success p-2 m-1">Create a new project</a>
 </div>
 @endsection
