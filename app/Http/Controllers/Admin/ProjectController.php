@@ -117,4 +117,8 @@ class ProjectController extends Controller
 
         return view('admin.projects.index', compact('projects'));
     }
+
+    public function restore(Project $project){
+        $project->restore();
+    }
 }
