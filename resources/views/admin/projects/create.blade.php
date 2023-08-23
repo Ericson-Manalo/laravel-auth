@@ -30,7 +30,7 @@
             <div class="col-md-10 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-file-code-o"></i></span>
-                    <select class="form-control" id="type">
+                    <select class="form-control" id="type" name="type">
                         <option>Public</option>
                         <option>Private</option>
                         <option>Sources</option>
@@ -52,7 +52,7 @@
             <div class="col-md-10 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-file-code-o"></i></span>
-                    <select class="form-control" id="language">
+                    <select class="form-control" id="language" name="language">
                         <option>PHP</option>
                         <option>Hack</option>
                         <option>Vue</option>
