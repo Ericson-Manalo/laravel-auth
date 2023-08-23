@@ -40,13 +40,13 @@
                     
                     <form action="{{route('admin.projects.restore', $project)}}" method="POST">
                         @csrf
-                        @method('DELETE')
+                        @method('POST')
 
                         <button type="submit"class="badge bg-success p-2 m-1">Restore</button>
                     </form>
-                    <form>
+                    <form action="{{route('admin.projects.erased', $project)}}" method="POST">
                         @csrf
-                        @method('POST')
+                        @method('DELETE')
 
                         <button type="submit"class="badge bg-danger p-2 m-1">Delete permanently</button>
                     </form>
