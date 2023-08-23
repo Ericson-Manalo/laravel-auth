@@ -115,10 +115,24 @@ class ProjectController extends Controller
     public function deleted(){
         $projects = Project::onlyTrashed()->paginate(10);
 
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.deleted', compact('projects'));
     }
 
-    public function restore(Project $project){
+    public function restore($id){
+        // dd($project);
+
+        $project = Project::onlyTrashed()->findOrFail($id);
+        // dd($project);
+
         $project->restore();
+
+        return redirect()->route('admin.projects.index', $project); 
+    }
+
+    public function permaDelete(){
+        $project = Project::onlyTrashed()->findOrFail($id);
+        $project->forceDelete();
+
+        return redirect()->route('admin.projects.index');
     }
 }
