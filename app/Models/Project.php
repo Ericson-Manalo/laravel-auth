@@ -14,6 +14,6 @@ class Project extends Model
         'description',
         'type',
         'language',
-        'created_data',
+        'created_date',
     ];
 }
