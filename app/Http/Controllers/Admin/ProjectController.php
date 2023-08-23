@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
-use Illumnate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -36,20 +35,29 @@ class ProjectController extends Controller
     {
         //
 
-        $data = validate([
-            'title' => ['required', 'unique:projects', 'min:3'],
+        $data = $request->validate([
+            'title' => ['required', 'unique:projects', 'min:6'],
             'description' => ['max:500'],
+            'type' => ['required'],
+            'language' => ['redquired'],
+            'created_data' => ['required'],
         ]);
 
-        $newProject = new Project();
-        $newProject->title = $data['title'];
-        $newProject->description = $data['description'];
-        $newProject->type = $data['type'];
-        $newProject->language = $data['language'];
-        $newProject->created_data = $data['created_data'];
+        $newProject = Project::create($data);
         $newProject->save();
 
-        return redirect()->route('admin.projects.show', $newProject->id);
+        return redirect()->route('admin.projects.index');
+
+        // $data = $request-> all();
+
+        // $newProject = new Project();
+        // $newProject->title = $data['title'];
+        // $newProject->description = $data['description'];
+        // $newProject->type = $data['type'];
+        // $newProject->language = $data['language'];
+        // $newProject->created_data = $data['created_data'];
+        // $newProject->save();
+
     }
 
     /**
