@@ -24,7 +24,7 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::prefix('admin')->name('admin.home')->middleware('auth')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', [ AdminHomeController::class , 'home'])->name('home');
 
     Route::resource('/projects', ProjectController::class);
@@ -32,7 +32,7 @@ Route::prefix('admin')->name('admin.home')->middleware('auth')->group(function (
 });
 
 
-Route::name('guests.home')->group(function () {
+Route::name('guests.')->group(function () {
     Route::get('/', [ GuestHomeController::class , 'home'])->name('home');
 
 });
