@@ -113,6 +113,8 @@ class ProjectController extends Controller
 
 
     public function deleted(){
-        
+        $projects = Project::onlyTrashed()->paginate(10);
+
+        return view('admin.projects.index', compact('projects'));
     }
 }
