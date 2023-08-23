@@ -129,9 +129,10 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index', $project); 
     }
 
-    public function permaDelete(){
+    public function erased($id){
         $project = Project::onlyTrashed()->findOrFail($id);
         $project->forceDelete();
+
 
         return redirect()->route('admin.projects.index');
     }
