@@ -39,7 +39,12 @@
                 <td class="text-center">
                     <a href="{{ route('admin.projects.show', $project->id) }}" class="badge bg-primary p-2 m-1 text-decoration: none">View</a>
                     <a href="{{ route('admin.projects.edit', $project->id) }}" class="badge bg-success p-2 m-1">Edit</a>
-                    <a href="" class="badge bg-danger p-2 m-1">Delete</a>
+                    <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit"class="badge bg-danger p-2 m-1">Delete</button>
+                    </form>
                 </td>
 
             </tr>
