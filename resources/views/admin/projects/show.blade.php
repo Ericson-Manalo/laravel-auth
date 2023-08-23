@@ -22,7 +22,7 @@
             
         </div>
         <div class="card-footer text-muted">
-            <a href="" class="badge bg-success p-2 m-1">Edit</a>
+            <a href="{{ route('admin.projects.edit', $project->id) }}" class="badge bg-success p-2 m-1">Edit</a>
             <a href="" class="badge bg-danger p-2 m-1">Delete</a>
         </div>
     </div>
