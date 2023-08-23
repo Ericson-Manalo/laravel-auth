@@ -26,8 +26,8 @@ Auth::routes();
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', [ AdminHomeController::class , 'home'])->name('home');
-    Route::get('projects/deleted', [ProjectController::class, 'deleted'])->name('projects.deleted');
-
+    Route::get('/projects/deleted', [ProjectController::class, 'deleted'])->name('projects.deleted');
+    Route::delete('/projects/deleted/{id}', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::resource('/projects', ProjectController::class);
 
 });
