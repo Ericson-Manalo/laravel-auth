@@ -35,12 +35,13 @@ class ProjectController extends Controller
     {
         //
 
+        // dd($request->all());
         $data = $request->validate([
             'title' => ['required', 'unique:projects', 'min:6'],
             'description' => ['max:500'],
             'type' => ['required'],
-            'language' => ['redquired'],
-            'created_data' => ['required'],
+            'language' => ['required'],
+            'created_date' => ['required'],
         ]);
 
         $newProject = Project::create($data);
