@@ -18,5 +18,6 @@ class Project extends Model
         'type',
         'language',
         'created_date',
+        'image'
     ];
 }
