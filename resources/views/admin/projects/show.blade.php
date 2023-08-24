@@ -14,6 +14,9 @@
                 {{$project->description}}
             </p>
             <p class="card-text">
+                {{$project->image}}
+            </p>
+            <p class="card-text">
                 {{$project->type}} - {{$project->language}}
             </p>
             <div class="card-footer text-muted">
