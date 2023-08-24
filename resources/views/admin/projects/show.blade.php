@@ -13,9 +13,8 @@
             <p class="card-text">
                 {{$project->description}}
             </p>
-            <p class="card-text">
-                {{$project->image}}
-            </p>
+            <img src="{{asset('storage/' . $project->image)}}" alt="{{$project->image}}">
+                
             <p class="card-text">
                 {{$project->type}} - {{$project->language}}
             </p>
