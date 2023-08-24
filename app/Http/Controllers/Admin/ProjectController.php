@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -34,16 +35,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
         // dd($request->all());
+
         $data = $request->validate([
             'title' => ['required', 'unique:projects', 'min:6'],
             'description' => ['max:500'],
             'type' => ['required'],
             'language' => ['required'],
             'created_date' => ['required'],
+            'image' => ['image'],
         ]);
+
+        $img_path = Storage::put('uploads', $request['image']);
+        $data['image'] = $img_path;
 
         $newProject = Project::create($data);
         $newProject->save();
@@ -111,6 +115,8 @@ class ProjectController extends Controller
         $projects = Project::onlyTrashed()->paginate(10);
         return view('admin.projects.deleted', compact('projects'));
     }
+
+
 
     public function restore($id){
         // dd($project);
