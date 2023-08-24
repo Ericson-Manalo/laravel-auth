@@ -17,6 +17,12 @@
     @error('description')
         <div class="error">{{ $message }}</div>
     @enderror     
+
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" class="form-control" id="image" name="image" placeholder="Insert you image">
+    </div>
+
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
         <textarea name="description" id="description" cols="95 "rows="10"></textarea>
