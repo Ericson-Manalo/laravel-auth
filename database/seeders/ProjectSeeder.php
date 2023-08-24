@@ -43,6 +43,8 @@ class ProjectSeeder extends Seeder
             $newProject->language = $faker->randomElement($languageList);
             $newProject->created_date = $faker->date('Y_m_d');
             $newProject->save();
+            $newProject->image = $faker->imageUrl(200, 200, 'post', true, 'posts', true, 'png');
+            $newProject->save();
             # code...
         }
     }
