@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="col-7 m-auto mt-5">
-    <form action="{{ route('admin.projects.store') }}" method="POST">
+    <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-
+                
     @error('title')
         <div class="error">{{ $message }}</div>
     @enderror            
