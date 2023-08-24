@@ -67,7 +67,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        
         return view('admin.projects.show', compact('project'));
     }
 
@@ -76,7 +75,6 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
         return view('admin.projects.edit', compact('project'));
     }
 
@@ -93,9 +91,7 @@ class ProjectController extends Controller
             'language' => ['required'],
             'created_date' => ['required'],
         ]);
-
         $project->update($data);
-
         return redirect()->route('admin.projects.index', compact('project'));
 
     }
@@ -105,7 +101,6 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
         // dd($project);
         $project->delete();
         return redirect()->route('admin.projects.index', compact('project'));
@@ -114,7 +109,6 @@ class ProjectController extends Controller
 
     public function deleted(){
         $projects = Project::onlyTrashed()->paginate(10);
-
         return view('admin.projects.deleted', compact('projects'));
     }
 
@@ -123,17 +117,13 @@ class ProjectController extends Controller
 
         $project = Project::onlyTrashed()->findOrFail($id);
         // dd($project);
-
         $project->restore();
-
         return redirect()->route('admin.projects.index', $project); 
     }
 
     public function erased($id){
         $project = Project::onlyTrashed()->findOrFail($id);
         $project->forceDelete();
-
-
         return redirect()->route('admin.projects.index');
     }
 }
